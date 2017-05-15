@@ -1,0 +1,26 @@
+version: "3"
+services:
+    main:
+        build: .
+        image: jestrr/swarm-example:0.1.0
+        entrypoint: ["pm2", "start", "/home/app/src/config/pm2.config.js", "--no-daemon"]
+        # NOTE: When deploying a "stack" to a swarm, volumes MUST be commented out
+        # When developing locally, uncomment volumes and re- docker-compose up
+        # volumes:
+        #     - ./src:/home/app/src
+        #     - ./server:/home/app/server
+        deploy:
+            replicas: 2
+            update_config:
+                parallelism: 2
+                delay: 10s
+            restart_policy:
+                max_attempts: 3
+                condition: on-failure
+        ports:
+            # HOST:CONTAINER
+            - "80:4000"
+        environment:
+            PUB_FILES: ./pub/
+            BIN: ./server/bin/
+            OUTPUT_FILES: ./server/output/
