@@ -6,7 +6,7 @@ Dev & Production system require:
 Inside root project directory with `docker-compose.yml` run:  
 `docker-compose up [-d]`  
 
-Check `HOST` under `HOST:CONTAINER` in `docker-compose.yml` for port (default 5000).  
+Check `HOST` under `HOST:CONTAINER` in `docker-compose.yml` for port (default 80).  
 
 ### Development  
 1) Edit `docker-compose.yml` to suit your needs  
