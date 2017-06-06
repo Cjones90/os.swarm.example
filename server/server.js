@@ -6,9 +6,11 @@ const url = require("url");
 const path = require("path");
 
 const routes = require("./routes.js");
+const service = require("./service.js");
 
 const PUB_FILES = process.env.PUB_FILES;
 const OUTPUT_FILES = process.env.OUTPUT_FILES
+const REGISTER_SERVICE = JSON.parse(process.env.REGISTER_SERVICE)
 const BIN = process.env.BIN;
 const PORT = 4000;
 
@@ -40,6 +42,7 @@ const server = {
             }
         }).listen(PORT);
         console.log("Server running");
+        if(REGISTER_SERVICE) { service.register(); }
     }
 }
 
