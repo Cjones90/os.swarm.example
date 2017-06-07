@@ -2,7 +2,7 @@ version: "3"
 services:
     main:
         build: .
-        image: jestrr/swarm-example:0.2.0
+        image: jestrr/swarm-example:0.2.3
         entrypoint: ["pm2", "start", "/home/app/src/config/pm2.config.js", "--no-daemon"]
         # NOTE: When deploying a "stack" to a swarm, volumes MUST be commented out
         # When developing locally, uncomment volumes and re- docker-compose up
@@ -29,4 +29,5 @@ services:
             SERVICE_NAME: swarm
             SERVICE_PORT: 80
             REGISTER_SERVICE: "false"
-            IMAGE_VER: 0.2.0
+            DEREGISTER_ON_EXIT: "false"
+            IMAGE_VER: 0.2.3
