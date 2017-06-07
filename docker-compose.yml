@@ -28,6 +28,6 @@ services:
             # Consul
             SERVICE_NAME: swarm
             SERVICE_PORT: 80
-            REGISTER_SERVICE: "false"
-            DEREGISTER_ON_EXIT: "false"
+            REGISTER_SERVICE: "true"
+            DEREGISTER_ON_EXIT: "true"
             IMAGE_VER: 0.2.3
